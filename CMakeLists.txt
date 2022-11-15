@@ -3,4 +3,5 @@ project(Refactor)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Refactor main.cpp)
+file(GLOB SOURCES include/*.h src/*.cpp)
+add_executable(Life ${SOURCES})
