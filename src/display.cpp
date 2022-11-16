@@ -61,6 +61,7 @@ void Display::clear() {
 #endif
 }
 
+
 void Display::drawTopFrame(int sizeHorizontal)
 {
     std::cout << TOP_LEFT_PIPE;
@@ -91,4 +92,10 @@ void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool borde
     }
     std::cout << '\t' << "   ";
     drawBottomFrame(grid[0].size());
-};
+}
+
+std::string Display::setTextColor(std::string text, Display::Colors color) {
+    text = "\x1b[38;5;" + std::to_string(color) + "m" + text + "\x1b[0m";
+    return std::string(text);
+}
+
