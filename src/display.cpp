@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include "iomanip"
 
 #ifdef _WIN32
 
@@ -59,3 +60,35 @@ void Display::clear() {
     system("clear");
 #endif
 }
+
+void Display::drawTopFrame(int sizeHorizontal)
+{
+    std::cout << TOP_LEFT_PIPE;
+    std::cout << std::setfill(HORIZONTAL_PIPE) << std::setw(sizeHorizontal);
+    std::cout << TOP_RIGHT_PIPE << "\n";
+}
+
+void Display::drawBottomFrame(int sizeHorizontal)
+{
+    std::cout << BOT_LEFT_PIPE;
+    std::cout << std::setfill(HORIZONTAL_PIPE) << std::setw(sizeHorizontal);
+    std::cout << BOT_RIGHT_PIPE << '\n';
+}
+
+void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation)
+{
+    drawTopFrame(grid[0].size());
+    for (int y = 0; y < grid.size(); ++y)
+    {
+        std::cout << '\t' << grid.size()-y-1 << std::setfill(' ') << std::setw((grid.size()-y-1 > 9) ? 2 : 3);
+        std::cout << VERTICAL_PIPE;
+        for (int x = 0; x < grid.at(y).size(); ++x)
+        {
+            char cellValue = grid.at(y).at(x) ? grid.at(y).at(x) : ' ';
+            std::cout << cellValue << ' ';
+        }
+        std::cout << VERTICAL_PIPE << '\n';
+    }
+    std::cout << '\t' << "   ";
+    drawBottomFrame(grid[0].size());
+};

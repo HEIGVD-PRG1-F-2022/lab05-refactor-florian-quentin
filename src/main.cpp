@@ -12,5 +12,10 @@ int main() {
     display.setContent("bouh");
     display.show();
 
+    vector<char> xAxis(20);
+    vector<vector<char>> grid(10, xAxis);
+
+    display.DisplayGrid(grid);
+    
     return EXIT_SUCCESS;
 }
