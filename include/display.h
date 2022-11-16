@@ -29,6 +29,8 @@ public:
 
     void setTextColor(Colors color);
 
+    static std::string setTextColor(std::string, Colors color);
+
     void saveCursorPosition();
 
     void goBackToCursorPosition();

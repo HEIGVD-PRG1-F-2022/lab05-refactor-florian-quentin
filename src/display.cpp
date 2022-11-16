@@ -59,3 +59,8 @@ void Display::clear() {
     system("clear");
 #endif
 }
+
+std::string Display::setTextColor(std::string text, Display::Colors color) {
+    text = "\x1b[38;5;" + std::to_string(color) + "m" + text + "\x1b[0m";
+    return std::string(text);
+}
