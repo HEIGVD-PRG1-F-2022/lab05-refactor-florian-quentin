@@ -44,9 +44,13 @@ void Display::show() {
     std::cout << this->prefix << this->content << this->suffix << std::endl;
 }
 
-void Display::show(std::string string) {
-    this->setContent(string);
+void Display::show(std::string text) {
+    this->setContent(text);
     this->show();
+}
+
+void Display::showText(std::string text, Display::Colors color) {
+    std::cout << Display::setTextColor(text, color) << std::endl;
 }
 
 void Display::setContent(std::string string) {

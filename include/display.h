@@ -37,7 +37,7 @@ public:
 
     void setTextColor(Colors color);
 
-    static std::string setTextColor(std::string, Colors color);
+    static std::string setTextColor(std::string text, Colors color);
 
     void saveCursorPosition();
 
@@ -45,7 +45,9 @@ public:
 
     void show();
 
-    void show(std::string string);
+    void show(std::string text);
+
+    static void showText(std::string text, Colors color = Colors::WHITE);
 
     void setContent(std::string string);
 
