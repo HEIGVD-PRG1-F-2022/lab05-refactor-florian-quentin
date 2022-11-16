@@ -11,6 +11,11 @@
 #include <string>
 
 class Display {
+    std::string prefix;
+    std::string suffix;
+
+    std::string content;
+public:
     enum Colors {
         WHITE = 15,
         PINK = 207,
@@ -20,11 +25,6 @@ class Display {
         BLACK = 16
     };
 
-    std::string prefix;
-    std::string suffix;
-
-    std::string content;
-public:
     explicit Display(Colors defaultTextColor = Colors::WHITE);
 
     void setTextColor(Colors color);
@@ -35,7 +35,9 @@ public:
 
     void show();
 
-    void setContent(std::string content);
+    void show(std::string string);
+
+    void setContent(std::string string);
 
     void clear();
 };
