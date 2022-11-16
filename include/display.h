@@ -11,18 +11,18 @@
 #include <string>
 #include <vector>
 
-const char TOP_LEFT_PIPE    = (char)201u;
-const char TOP_RIGHT_PIPE   = (char)187u;
-const char HORIZONTAL_PIPE  = (char)205u;
-const char VERTICAL_PIPE    = (char)186u;
-const char BOT_LEFT_PIPE    = (char)200u;
-const char BOT_RIGHT_PIPE   = (char)188u;
+const char TOP_LEFT_PIPE = (char) 201u;
+const char TOP_RIGHT_PIPE = (char) 187u;
+const char HORIZONTAL_PIPE = (char) 205u;
+const char VERTICAL_PIPE = (char) 186u;
+const char BOT_LEFT_PIPE = (char) 200u;
+const char BOT_RIGHT_PIPE = (char) 188u;
 
 class Display {
     std::string prefix;
     std::string suffix;
-
     std::string content;
+
 public:
     enum Colors {
         WHITE = 15,
@@ -54,8 +54,10 @@ public:
     void clear();
 
     void drawTopFrame(int sizeHorizontal);
+
     void drawBottomFrame(int sizeHorizontal);
+
     void DisplayGrid(const std::vector<std::vector<char>> &grid, bool border = true, bool insideSeparation = true);
 };
 
-#endif //REFACTOR_DISPLAY_H
+#endif // REFACTOR_DISPLAY_H
