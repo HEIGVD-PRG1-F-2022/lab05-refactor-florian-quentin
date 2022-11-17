@@ -61,7 +61,7 @@ public:
 
     void clear();
 
-    void DisplayGrid(const std::vector<std::vector<char>> &grid, bool border = true, bool insideSeparation = true);
+    void DisplayGrid(const std::vector<std::vector<std::string>> &grid, bool border = true, bool insideSeparation = true);
 };
 
 #endif // REFACTOR_DISPLAY_H

@@ -117,7 +117,7 @@ std::string Display::drawBottomFrame(int sizeHorizontal) {
     //std::cout << BOT_RIGHT_PIPE << std::endl;
 }
 
-void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation)
+void Display::DisplayGrid(const std::vector<std::vector<std::string>> &grid, bool border, bool insideSeparation)
 {
     int horizontalSize = grid[0].size() * 4;
 
