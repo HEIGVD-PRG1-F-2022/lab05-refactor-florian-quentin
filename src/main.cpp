@@ -37,12 +37,10 @@ int main() {
 
     display.DisplayGrid(grid);
 
-<<<<<<< Updated upstream
-=======
+
     while(true)
     {
         int a =1;
     }
->>>>>>> Stashed changes
     return EXIT_SUCCESS;
 }

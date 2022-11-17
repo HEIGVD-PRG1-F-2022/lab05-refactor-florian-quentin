@@ -81,12 +81,6 @@ std::string Display::drawInBetween(int sizeHorizontal)
     return line;
 }
 
-<<<<<<< Updated upstream
-void Display::drawTopFrame(int sizeHorizontal) {
-    std::cout << TOP_LEFT_PIPE;
-    std::cout << std::setfill(HORIZONTAL_PIPE) << std::setw(sizeHorizontal);
-    std::cout << TOP_RIGHT_PIPE << "\n";
-=======
 std::string Display::drawTopFrame(int sizeHorizontal)
 {
     std::string line;
@@ -101,7 +95,6 @@ std::string Display::drawTopFrame(int sizeHorizontal)
     }
     line.append(TOP_RIGHT_PIPE);
     return line;
->>>>>>> Stashed changes
 }
 
 void Display::drawBottomFrame(int sizeHorizontal) {
@@ -118,16 +111,6 @@ void Display::drawBottomFrame(int sizeHorizontal) {
     std::cout << BOT_RIGHT_PIPE << std::endl;
 }
 
-<<<<<<< Updated upstream
-void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation) {
-    drawTopFrame(grid[0].size());
-    for (int y = 0; y < grid.size(); ++y) {
-        std::cout << '\t' << grid.size() - y - 1 << std::setfill(' ') << std::setw((grid.size() - y - 1 > 9) ? 2 : 3);
-        std::cout << VERTICAL_PIPE;
-        for (int x = 0; x < grid.at(y).size(); ++x) {
-            char cellValue = grid.at(y).at(x) ? grid.at(y).at(x) : ' ';
-            std::cout << cellValue << ' ';
-=======
 void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation)
 {
     int horizontalSize = grid[0].size() * 4;
@@ -151,7 +134,6 @@ void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool borde
                 else
                     std::cout << ' ';
             }
->>>>>>> Stashed changes
         }
         std::cout << VERTICAL_PIPE << std::endl;
     }

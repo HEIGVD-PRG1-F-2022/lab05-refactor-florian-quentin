@@ -11,16 +11,6 @@
 #include <string>
 #include <vector>
 
-<<<<<<< Updated upstream
-const char TOP_LEFT_PIPE = (char) 201u;
-const char TOP_RIGHT_PIPE = (char) 187u;
-const char HORIZONTAL_PIPE = (char) 205u;
-const char VERTICAL_PIPE = (char) 186u;
-const char BOT_LEFT_PIPE = (char) 200u;
-const char BOT_RIGHT_PIPE = (char) 188u;
-=======
-
->>>>>>> Stashed changes
 
 class Display {
 
@@ -35,14 +25,12 @@ class Display {
     std::string suffix;
     std::string content;
 
-<<<<<<< Updated upstream
-=======
+
 private:
     std::string drawInBetween(int sizeHorizontal);
     std::string drawTopFrame(int sizeHorizontal);
     void drawBottomFrame(int sizeHorizontal);
 
->>>>>>> Stashed changes
 public:
     enum Colors {
         WHITE = 15,
@@ -73,13 +61,6 @@ public:
 
     void clear();
 
-<<<<<<< Updated upstream
-    void drawTopFrame(int sizeHorizontal);
-
-    void drawBottomFrame(int sizeHorizontal);
-
-=======
->>>>>>> Stashed changes
     void DisplayGrid(const std::vector<std::vector<char>> &grid, bool border = true, bool insideSeparation = true);
 };
 
