@@ -9,8 +9,10 @@
 #define REFACTOR_INPUT_H
 
 class Input {
+    void showInputCursor();
 public:
-    int getConsoleInput();
+    static int getConsoleInput();
+    static int getConsoleInputInt(int,int);
 };
 
 #endif //REFACTOR_INPUT_H
