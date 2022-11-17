@@ -97,18 +97,24 @@ std::string Display::drawTopFrame(int sizeHorizontal)
     return line;
 }
 
-void Display::drawBottomFrame(int sizeHorizontal) {
-    std::cout << BOT_LEFT_PIPE;
+std::string Display::drawBottomFrame(int sizeHorizontal) {
+
+    std::string line;
+    line.append(BOT_LEFT_PIPE);
+    //std::cout << BOT_LEFT_PIPE;
 
     for (int i = 1; i < sizeHorizontal; ++i)
     {
         if( i % 4 != 0)
-            std::cout << HORIZONTAL_PIPE;
+            line.append(HORIZONTAL_PIPE);
+            //std::cout << HORIZONTAL_PIPE;
         else
-            std::cout << "╩";
+            line.append("╩");
+            //std::cout << "╩";
     }
-
-    std::cout << BOT_RIGHT_PIPE << std::endl;
+    line.append(BOT_RIGHT_PIPE);
+    return line;
+    //std::cout << BOT_RIGHT_PIPE << std::endl;
 }
 
 void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation)
@@ -137,7 +143,7 @@ void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool borde
         }
         std::cout << VERTICAL_PIPE << std::endl;
     }
-    drawBottomFrame(horizontalSize);
+    std::cout << drawBottomFrame(horizontalSize) << std::endl;
 }
 
 std::string Display::setTextColor(std::string text, Display::Colors color) {

@@ -29,7 +29,7 @@ class Display {
 private:
     std::string drawInBetween(int sizeHorizontal);
     std::string drawTopFrame(int sizeHorizontal);
-    void drawBottomFrame(int sizeHorizontal);
+    std::string drawBottomFrame(int sizeHorizontal);
 
 public:
     enum Colors {
