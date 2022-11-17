@@ -65,19 +65,60 @@ void Display::clear() {
 #endif
 }
 
+std::string Display::drawInBetween(int sizeHorizontal)
+{
+    std::string line;
+    //std::cout <<  "╠";
+    line.append("╠");
+    for (int i = 1; i < sizeHorizontal; ++i)
+    {
+        if( i % 4 != 0)
+            line.append(HORIZONTAL_PIPE);
+        else
+            line.append("╬");
+    }
+    line.append("╣");
+    return line;
+}
 
+<<<<<<< Updated upstream
 void Display::drawTopFrame(int sizeHorizontal) {
     std::cout << TOP_LEFT_PIPE;
     std::cout << std::setfill(HORIZONTAL_PIPE) << std::setw(sizeHorizontal);
     std::cout << TOP_RIGHT_PIPE << "\n";
+=======
+std::string Display::drawTopFrame(int sizeHorizontal)
+{
+    std::string line;
+    line.append(TOP_LEFT_PIPE);
+
+    for (int i = 1; i < sizeHorizontal; ++i)
+    {
+        if( i % 4 != 0)
+            line.append(HORIZONTAL_PIPE);
+        else
+            line.append("╦");
+    }
+    line.append(TOP_RIGHT_PIPE);
+    return line;
+>>>>>>> Stashed changes
 }
 
 void Display::drawBottomFrame(int sizeHorizontal) {
     std::cout << BOT_LEFT_PIPE;
-    std::cout << std::setfill(HORIZONTAL_PIPE) << std::setw(sizeHorizontal);
-    std::cout << BOT_RIGHT_PIPE << '\n';
+
+    for (int i = 1; i < sizeHorizontal; ++i)
+    {
+        if( i % 4 != 0)
+            std::cout << HORIZONTAL_PIPE;
+        else
+            std::cout << "╩";
+    }
+
+    std::cout << BOT_RIGHT_PIPE << std::endl;
 }
 
+<<<<<<< Updated upstream
 void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation) {
     drawTopFrame(grid[0].size());
     for (int y = 0; y < grid.size(); ++y) {
@@ -86,11 +127,35 @@ void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool borde
         for (int x = 0; x < grid.at(y).size(); ++x) {
             char cellValue = grid.at(y).at(x) ? grid.at(y).at(x) : ' ';
             std::cout << cellValue << ' ';
+=======
+void Display::DisplayGrid(const std::vector<std::vector<char>> &grid, bool border, bool insideSeparation)
+{
+    int horizontalSize = grid[0].size() * 4;
+
+    std::cout << drawTopFrame(horizontalSize) << std::endl;
+    for (int y = 0; y < grid.size(); ++y)
+    {
+        if(y != 0)
+        {
+            std::cout << drawInBetween(horizontalSize) << std::endl;
         }
-        std::cout << VERTICAL_PIPE << '\n';
+
+        std::cout << VERTICAL_PIPE << ' ';
+        for (int x = 0; x < grid.at(0).size(); ++x)
+        {
+            std::cout << grid.at(y).at(x);
+            if(insideSeparation)
+            {
+                if(x != grid.at(0).size()-1)
+                    std::cout << ' ' << VERTICAL_PIPE << ' ';
+                else
+                    std::cout << ' ';
+            }
+>>>>>>> Stashed changes
+        }
+        std::cout << VERTICAL_PIPE << std::endl;
     }
-    std::cout << '\t' << "   ";
-    drawBottomFrame(grid[0].size());
+    drawBottomFrame(horizontalSize);
 }
 
 std::string Display::setTextColor(std::string text, Display::Colors color) {
