@@ -8,14 +8,9 @@
 #include <iostream>
 #include "../include/input.h"
 
-
-void Input::showInputCursor() {
-    std::cout << "> ";
-}
-
 int Input::getConsoleInput() {
     char input;
-    this->showInputCursor();
+    std::cout << "> ";
     do {
         std::cin >> input;
     } while(input == '\000');
@@ -25,12 +20,13 @@ int Input::getConsoleInput() {
 
 int Input::getConsoleInputInt(int min, int max) {
     int input;
-    this->showInputCursor();
+    std::cout << "> ";
     do {
-        if(std::cin.fail()) {
+        if (std::cin.fail()) {
             std::cin.ignore(256, '\n');
         }
         std::cin >> input;
         std::cin.clear();
     } while (std::cin.fail() || input < min || input >= max);
+    return input;
 }
