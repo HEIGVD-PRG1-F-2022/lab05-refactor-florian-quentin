@@ -6,10 +6,10 @@ using namespace std;
 
 
 int main() {
+    Display display(Display::Colors::PINK);
+
     Display::showText("Test", Display::Colors::GREEN);
     this_thread::sleep_for(1000ms);
-
-    Display display(Display::Colors::PINK);
 
     display.saveCursorPosition();
     display.setContent("Hello World!\nteste");
