@@ -1,4 +1,3 @@
-#include <iostream>
 #include <thread>
 #include "../include/display.h"
 #include "../include/input.h"
@@ -24,27 +23,25 @@ int main() {
 
     display.clear();
     display.show("MAMA");
-
     this_thread::sleep_for(1000ms);
 
-    vector<string> xAxis(20);
-    vector<vector<string>> grid(10, xAxis);
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid.at(i).size(); ++j) {
-            grid.at(i).at(j) = Display::setTextColor("a", Display::Colors::PINK);
+    vector<vector<string>> grid(6, vector<string>(6, "0"));
+    display.DisplayGrid(grid);
+    this_thread::sleep_for(1000ms);
+
+    for(auto& row: grid){
+        for(auto& item: row) {
+            item =  Display::setTextColor("a", Display::Colors::PINK);
         }
     }
-
     display.DisplayGrid(grid);
+    this_thread::sleep_for(1000ms);
 
     int age = userInputRange<int>(0, 200, "Quel age as-tu ?", "Mauvais entrée");
 
     string tmp = "Vous avez " + Display::setTextColor(to_string(age), Display::Colors::RED) + " ans";
-
     Display::showText(tmp);
+    this_thread::sleep_for(1000ms);
 
-    while (true) {
-        int a = 1;
-    }
     return EXIT_SUCCESS;
 }
