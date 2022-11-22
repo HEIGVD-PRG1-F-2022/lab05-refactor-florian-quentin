@@ -20,11 +20,15 @@
 
 #include "../include/display.h"
 
-Display::Display(Colors defaultTextColor) {
-    this->setTextColor(defaultTextColor);
+void Display::setTerminalUtf8() {
 #ifdef _WIN32
     system(("chcp " + std::to_string(CP_UTF8)).c_str()); // Set terminal to utf-8 with support of colors
 #endif
+}
+
+Display::Display(Colors defaultTextColor) {
+    Display::setTerminalUtf8();
+    this->setTextColor(defaultTextColor);
 }
 
 void Display::setTextColor(Display::Colors color) {
@@ -50,6 +54,7 @@ void Display::show(std::string text) {
 }
 
 void Display::showText(std::string text, Display::Colors color) {
+    Display::setTerminalUtf8();
     std::cout << Display::setTextColor(text, color) << std::endl;
 }
 
@@ -98,7 +103,6 @@ std::string Display::drawTopFrame(int sizeHorizontal)
 }
 
 std::string Display::drawBottomFrame(int sizeHorizontal) {
-
     std::string line;
     line.append(BOT_LEFT_PIPE);
     //std::cout << BOT_LEFT_PIPE;

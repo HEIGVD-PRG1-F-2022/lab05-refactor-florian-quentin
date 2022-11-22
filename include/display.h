@@ -31,6 +31,8 @@ private:
     std::string drawTopFrame(int sizeHorizontal);
     std::string drawBottomFrame(int sizeHorizontal);
 
+    static void setTerminalUtf8();
+
 public:
     enum Colors {
         WHITE = 15,
