@@ -1,0 +1,3 @@
+[submodule "lib/prg1f-io"]
+	path = lib/prg1f-io
+	url = git@github.com:HEIGVD-PRG1-F-2022/prg1f-io.git

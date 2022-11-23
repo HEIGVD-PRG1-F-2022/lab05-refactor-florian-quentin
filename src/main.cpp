@@ -1,6 +1,6 @@
 #include <thread>
-#include "../include/display.h"
-#include "../include/input.h"
+#include "../lib/prg1f-io/include/display.h"
+#include "../lib/prg1f-io/include/input.h"
 
 using namespace std;
 
@@ -29,15 +29,15 @@ int main() {
     display.DisplayGrid(grid);
     this_thread::sleep_for(1000ms);
 
-    for(auto& row: grid){
-        for(auto& item: row) {
-            item =  Display::setTextColor("a", Display::Colors::PINK);
+    for (auto &row: grid) {
+        for (auto &item: row) {
+            item = Display::setTextColor("a", Display::Colors::PINK);
         }
     }
     display.DisplayGrid(grid);
     this_thread::sleep_for(1000ms);
 
-    int age = userInputRange<int>(0, 200, "Quel age as-tu ?", "Mauvais entrée");
+    int age = userInputRange<int>("Quel age as-tu ?", 0, 200, "Mauvais entrée");
 
     string tmp = "Vous avez " + Display::setTextColor(to_string(age), Display::Colors::RED) + " ans";
     Display::showText(tmp);
